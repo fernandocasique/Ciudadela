@@ -1,14 +1,13 @@
 package co.com.ciudadela.controlador
 
-import co.com.ciudadela.controlador.AdministradorCiudadela.estadoCiudadela
 import co.com.ciudadela.modelo.{Ciudadela, EnProgreso, OrdenConstruccion, Pendiente, Terminado}
 
 import java.util.Calendar
 
-trait ActualizarEstado {
+trait ActualizarEstadosOrdenes {
 
   def actualizarEstado(ciudadela: Ciudadela): Ciudadela = {
-    estadoCiudadela (ciudadela) match {
+    EstadoCiudadela.estadoCiudadela (ciudadela) match {
       case true => ciudadela
       case false =>  val tiempoTrancurrido = tiempoTranscurridoInicioCiudadela(ciudadela)
         ciudadela.copy(solicitudesOrdenes = ciudadela.solicitudesOrdenes.map(ordenConst => cambiarEstado(ordenConst, tiempoTrancurrido)))
@@ -31,4 +30,4 @@ trait ActualizarEstado {
 
 
 }
-object ActualizarEstado extends ActualizarEstado
+object ActualizarEstadosOrdenes extends ActualizarEstadosOrdenes

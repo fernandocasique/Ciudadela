@@ -15,7 +15,7 @@ object AdministradorCiudadela {
   }
 
   def calculaFechaCulminacion(ciudadela: Ciudadela): Ciudadela ={
-    estadoCiudadela(ciudadela) match {
+    EstadoCiudadela.estadoCiudadela(ciudadela) match {
       case true => ciudadela.copy(plazoEntrega = calcularPlazoCiudadela(ciudadela))
       case false => val fecha = ciudadela.fechaInicio
         val plazoProyecto = calcularPlazoCiudadela(ciudadela)
@@ -24,14 +24,12 @@ object AdministradorCiudadela {
     }
 
   def estadoSolicitudes(ciudadela: Ciudadela, ordenConstruccion: OrdenConstruccion): OrdenConstruccion = {
-    estadoCiudadela(ciudadela) match {
+    EstadoCiudadela.estadoCiudadela(ciudadela) match {
       case true => ordenConstruccion.copy(estadoOrden = EnProgreso(),  plazo = calcularPlazoCiudadela(ciudadela) + ordenConstruccion.tipoConstruccion.get.tiempo)
       case false => ordenConstruccion.copy( estadoOrden = Pendiente(), plazo = calcularPlazoCiudadela(ciudadela) + ordenConstruccion.tipoConstruccion.get.tiempo)
     }
   }
 
-  def estadoCiudadela(ciudadela: Ciudadela):Boolean = {
-    ciudadela.solicitudesOrdenes.isEmpty
-  }
+
 }
 

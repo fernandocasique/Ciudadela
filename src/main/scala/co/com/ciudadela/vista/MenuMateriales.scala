@@ -7,7 +7,7 @@ import co.com.ciudadela.modelo.{Ciudadela, OrdenConstruccion}
 object MenuMateriales {
   def menuMateriales( ordenConstruccion: OrdenConstruccion, ciudadela: Ciudadela): Unit ={
     println("___ Menú de Materiales ___\n")
-    println(" Digite => \n 1. Para ver materiales \n 2. Para recargar 500 por cada material \n _. Para regresar digite cualquier otra tecla")
+    println(" Digite => \n 1. Para ver materiales \n 2. Para recargar 500 por cada material \n _. Cualquier otro digito para regresar")
     val comando  = scala.io.StdIn.readLine()
     controladorMateriales(comando, ordenConstruccion, ciudadela)
   }

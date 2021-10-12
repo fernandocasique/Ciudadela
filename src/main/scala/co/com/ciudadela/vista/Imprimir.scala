@@ -1,5 +1,7 @@
 package co.com.ciudadela.vista
 
+
+import co.com.ciudadela.controlador.EstadoCiudadela
 import co.com.ciudadela.modelo.{Ciudadela, OrdenConstruccion}
 
 trait Imprimir {
@@ -28,32 +30,31 @@ trait Imprimir {
 
 
   def mostrarFechaCulminación(ordenConstruccion: OrdenConstruccion, ciudadela: Ciudadela) = {
-    if (ciudadela.solicitudesOrdenes.isEmpty)
-      println("\nAún no  ha iniciado la construcción de la Ciudadela\n")
-      else
-      println(s"\n La fecha de culminación del proyecto es: ${ciudadela.fechaFin} \n")
+    EstadoCiudadela.estadoCiudadela (ciudadela) match {
+      case true => println("\nAún no  ha iniciado la construcción de la Ciudadela\n")
+      case false =>  println(s"\n La fecha de culminación del proyecto es: ${ciudadela.fechaFin} \n")
+    }
     MenuPrincipal.menuPrincipal(ordenConstruccion, ciudadela)
   }
 
   def mostrarSolicitudOrdenes(ordenConstruccion: OrdenConstruccion, ciudadela: Ciudadela) = {
     println("\n___ Ordenes de Construcción ___")
-    if(ciudadela.solicitudesOrdenes.isEmpty)
-      println("\nAún no ha insertado ninguna orden\n")
-    else
-    ciudadela.solicitudesOrdenes.map(ordConstruccion => println(s"\n Tipo de Construcción: ${ordConstruccion.tipoConstruccion}___ " +
-      s"Estado de la Construcción: ${ordConstruccion.estadoOrden}___" +
-      s" Coordenadas de la Construcción: EjeX => ${ordConstruccion.coordenada.get.ejeX}, EjeY => ${ordConstruccion.coordenada.get.ejeY}\n"))
-
+    EstadoCiudadela.estadoCiudadela (ciudadela) match {
+      case true => println("\nAún no ha insertado ninguna orden\n")
+      case false =>    ciudadela.solicitudesOrdenes.map(ordConstruccion => println(s"\n Tipo de Construcción: ${ordConstruccion.tipoConstruccion}___ " +
+        s"Estado de la Construcción: ${ordConstruccion.estadoOrden}___" +
+        s" Coordenadas de la Construcción: EjeX => ${ordConstruccion.coordenada.get.ejeX}, EjeY => ${ordConstruccion.coordenada.get.ejeY}\n"))
+    }
     MenuPrincipal.menuPrincipal(ordenConstruccion, ciudadela)
   }
   def imprimirEstadosAct(ordenConstruccion: OrdenConstruccion, ciudadela: Ciudadela) = {
-    if(ciudadela.solicitudesOrdenes.isEmpty) {
-      println("\nAún no ha insertado ninguna orden\n")
-    } else{
-    println("\n ___ Todos los estados fueron actualizados con éxito ___\n")
-    ciudadela.solicitudesOrdenes.map(ordConstruccion => println(s"\n Tipo de Construcción: ${ordConstruccion.tipoConstruccion}___ " +
-      s"Estado de la Construcción: ${ordConstruccion.estadoOrden}___" +
-      s" Coordenadas de la Construcción: EjeX => ${ordConstruccion.coordenada.get.ejeX}, EjeY => ${ordConstruccion.coordenada.get.ejeY}\n"))}
+    EstadoCiudadela.estadoCiudadela (ciudadela) match {
+      case true =>   println("\nAún no ha insertado ninguna orden\n")
+      case false =>   println("\n ___ Todos los estados fueron actualizados con éxito ___\n")
+        ciudadela.solicitudesOrdenes.map(ordConstruccion => println(s"\n Tipo de Construcción: ${ordConstruccion.tipoConstruccion}___ " +
+          s"Estado de la Construcción: ${ordConstruccion.estadoOrden}___" +
+          s" Coordenadas de la Construcción: EjeX => ${ordConstruccion.coordenada.get.ejeX}, EjeY => ${ordConstruccion.coordenada.get.ejeY}\n"))
+    }
     MenuPrincipal.menuPrincipal(ordenConstruccion, ciudadela)
   }
 

@@ -8,7 +8,7 @@ object MenuSolicitud {
   def  menuTipoConstruccion(ordenConstruccion: OrdenConstruccion, ciudadela: Ciudadela): Unit ={
     println("___ Solicitud Orden de construccion ___\n")
     println("Digite => \n 1. Para construir una casa \n 2.  Para construir una lago \n 3.  Para construir una Cancha de Futbol " +
-      "\n 4.  Para construir un edificio \n 5.  Para construir un gymnasio \n  . Cualquier otro digito ara volver al menú Principal")
+      "\n 4.  Para construir un edificio \n 5.  Para construir un gymnasio \n  _. Cualquier otro digito para volver al menú Principal")
     val comandoTipoConstruccion  = scala.io.StdIn.readLine()
     controladorOrden(comandoTipoConstruccion,ordenConstruccion, ciudadela )
   }
