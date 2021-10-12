@@ -22,7 +22,7 @@ trait Imprimir {
   def imprimirOrden(ordenConstruccion: OrdenConstruccion, ciudadela: Ciudadela)= {
     println(s"\n ___ Orden de Construcción insertada con Exito ___ \n\n Tipo de Construcción: ${ordenConstruccion.tipoConstruccion}___ " +
       s"Estado de la Construcción: ${ordenConstruccion.estadoOrden}___" +
-      s" Coordenadas de la Construcción: EjeX => ${ordenConstruccion.coordenada.ejeX}, EjeY => ${ordenConstruccion.coordenada.ejeY}\n")
+      s" Coordenadas de la Construcción: EjeX => ${ordenConstruccion.coordenada.get.ejeX}, EjeY => ${ordenConstruccion.coordenada.get.ejeY}\n")
     MenuPrincipal.menuPrincipal(ordenConstruccion, ciudadela)
   }
 
@@ -42,7 +42,7 @@ trait Imprimir {
     else
     ciudadela.solicitudesOrdenes.map(ordConstruccion => println(s"\n Tipo de Construcción: ${ordConstruccion.tipoConstruccion}___ " +
       s"Estado de la Construcción: ${ordConstruccion.estadoOrden}___" +
-      s" Coordenadas de la Construcción: EjeX => ${ordConstruccion.coordenada.ejeX}, EjeY => ${ordConstruccion.coordenada.ejeY}\n"))
+      s" Coordenadas de la Construcción: EjeX => ${ordConstruccion.coordenada.get.ejeX}, EjeY => ${ordConstruccion.coordenada.get.ejeY}\n"))
 
     MenuPrincipal.menuPrincipal(ordenConstruccion, ciudadela)
   }
@@ -53,7 +53,7 @@ trait Imprimir {
     println("\n ___ Todos los estados fueron actualizados con éxito ___\n")
     ciudadela.solicitudesOrdenes.map(ordConstruccion => println(s"\n Tipo de Construcción: ${ordConstruccion.tipoConstruccion}___ " +
       s"Estado de la Construcción: ${ordConstruccion.estadoOrden}___" +
-      s" Coordenadas de la Construcción: EjeX => ${ordConstruccion.coordenada.ejeX}, EjeY => ${ordConstruccion.coordenada.ejeY}\n"))}
+      s" Coordenadas de la Construcción: EjeX => ${ordConstruccion.coordenada.get.ejeX}, EjeY => ${ordConstruccion.coordenada.get.ejeY}\n"))}
     MenuPrincipal.menuPrincipal(ordenConstruccion, ciudadela)
   }
 

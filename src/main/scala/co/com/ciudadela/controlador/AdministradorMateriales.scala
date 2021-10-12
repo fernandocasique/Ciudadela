@@ -16,10 +16,10 @@ object AdministradorMateriales {
   }
 
   def descontarMaterial( ordenConstruccion: OrdenConstruccion, materiales: Materiales): Materiales ={
-  materiales.copy( cemento = materiales.cemento - ordenConstruccion.tipoConstruccion.cemento,
-    grava = materiales.grava - ordenConstruccion.tipoConstruccion.grava,
-    adobe = materiales.adobe - ordenConstruccion.tipoConstruccion.adobe,
-    madera = materiales.madera - ordenConstruccion.tipoConstruccion.madera,
-    arena = materiales.arena - ordenConstruccion.tipoConstruccion.arena)
+  materiales.copy( cemento = materiales.cemento - ordenConstruccion.tipoConstruccion.get.cemento,
+    grava = materiales.grava - ordenConstruccion.tipoConstruccion.get.grava,
+    adobe = materiales.adobe - ordenConstruccion.tipoConstruccion.get.adobe,
+    madera = materiales.madera - ordenConstruccion.tipoConstruccion.get.madera,
+    arena = materiales.arena - ordenConstruccion.tipoConstruccion.get.arena)
   }
 }
