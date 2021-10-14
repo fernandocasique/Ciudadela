@@ -7,11 +7,11 @@ import java.util.{Calendar}
 object AdministradorCiudadela {
 
   def calcularPlazoCiudadela(ciudadela: Ciudadela): Int ={
-    ciudadela.solicitudesOrdenes.map(orden => orden.tipoConstruccion.get.tiempo).sum
+    ciudadela.solicitudesOrdenes.map(orden => orden.tipoConstruccion.get.tiempo + 1).sum
   }
 
   def calcularPlazoOrden(ciudadela: Ciudadela, ordenConstruccion: OrdenConstruccion): Int ={
-    ciudadela.solicitudesOrdenes.map(orden => orden.tipoConstruccion.get.tiempo).sum + ordenConstruccion.tipoConstruccion.get.tiempo
+    ciudadela.solicitudesOrdenes.map(orden => orden.tipoConstruccion.get.tiempo).sum + 1 + ordenConstruccion.tipoConstruccion.get.tiempo
   }
 
   def calculaFechaCulminacion(ciudadela: Ciudadela): Ciudadela ={
@@ -19,8 +19,7 @@ object AdministradorCiudadela {
       case true => ciudadela.copy(plazoEntrega = calcularPlazoCiudadela(ciudadela))
       case false => val fecha = ciudadela.fechaInicio
         val plazoProyecto = calcularPlazoCiudadela(ciudadela)
-        fecha.add(Calendar.DAY_OF_YEAR, plazoProyecto)
-        ciudadela.copy(fechaFin = Some(fecha.getTime()), plazoEntrega = calcularPlazoCiudadela(ciudadela))}
+        ciudadela.copy(fechaFin = Some( fecha.plusDays(plazoProyecto)), plazoEntrega = calcularPlazoCiudadela(ciudadela))}
     }
 
   def estadoSolicitudes(ciudadela: Ciudadela, ordenConstruccion: OrdenConstruccion): OrdenConstruccion = {

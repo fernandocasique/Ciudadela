@@ -1,15 +1,15 @@
 package co.com.ciudadela
 
-import co.com.ciudadela.modelo.{Ciudadela,  OrdenConstruccion}
+import co.com.ciudadela.modelo.{Ciudadela, OrdenConstruccion}
 import co.com.ciudadela.vista.{Imprimir, MenuPrincipal}
 
-import java.util.{Calendar}
+import java.time.{LocalDate}
 
 object main {
   def main(args: Array[String]): Unit = {
-    val fechaInicioProyecto = Calendar.getInstance()
+    val fechafechaInicioProyecto = LocalDate.now
     val ordenConstruccion: OrdenConstruccion = OrdenConstruccion(None, None)
-    val ciudadela: Ciudadela = Ciudadela(None,fechaInicio = fechaInicioProyecto)
+    val ciudadela: Ciudadela = Ciudadela(None, fechaInicio = fechafechaInicioProyecto )
     Imprimir.imprimirBienvenida(ciudadela)
     MenuPrincipal.menuPrincipal(ordenConstruccion, ciudadela)
   }

@@ -15,8 +15,8 @@ object MenuMateriales {
   def controladorMateriales(comando: String, ordenConstruccion: OrdenConstruccion, ciudadela: Ciudadela): Any = {
     comando match {
       case "1" => Imprimir.imprimirMateriales(ordenConstruccion, ciudadela)
-      case "2" => val materialesAct = recargaMateriales(ciudadela.materiales)
-        Imprimir.imprimirRecargaExitosa(ordenConstruccion,ciudadela.copy(materiales = materialesAct))
+      case "2" => val materialesAct = recargaMateriales(ciudadela.material)
+        Imprimir.imprimirRecargaExitosa(ordenConstruccion,ciudadela.copy(material = materialesAct))
       case _ =>  MenuPrincipal.menuPrincipal(ordenConstruccion, ciudadela)
     }
   }

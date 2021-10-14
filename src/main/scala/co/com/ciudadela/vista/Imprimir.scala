@@ -7,12 +7,12 @@ import co.com.ciudadela.modelo.{Ciudadela, OrdenConstruccion}
 trait Imprimir {
   def imprimirMateriales(ordenConstruccion: OrdenConstruccion, ciudadela: Ciudadela): Any ={
     println("\n ___ Materiales ___")
-    println(s"\n Madera: ${ciudadela.materiales.madera}  \n Adobe = ${ciudadela.materiales.adobe}  \n Arena = ${ciudadela.materiales.arena}\n Grava = ${ciudadela.materiales.grava} \n Cemento = ${ciudadela.materiales.cemento} \n")
+    println(s"\n Madera: ${ciudadela.material.madera}  \n Adobe = ${ciudadela.material.adobe}  \n Arena = ${ciudadela.material.arena}\n Grava = ${ciudadela.material.grava} \n Cemento = ${ciudadela.material.cemento} \n")
     MenuPrincipal.menuPrincipal(ordenConstruccion, ciudadela)
   }
   def imprimirRecargaExitosa(ordenConstruccion: OrdenConstruccion, ciudadela: Ciudadela): Any ={
     println("\n ___ Se recargaron los materiales con éxito ___")
-    println(s"\n Madera: ${ciudadela.materiales.madera}  \n Adobe = ${ciudadela.materiales.adobe}  \n Arena = ${ciudadela.materiales.arena}\n Grava = ${ciudadela.materiales.grava} \n Cemento = ${ciudadela.materiales.cemento} \n")
+    println(s"\n Madera: ${ciudadela.material.madera}  \n Adobe = ${ciudadela.material.adobe}  \n Arena = ${ciudadela.material.arena}\n Grava = ${ciudadela.material.grava} \n Cemento = ${ciudadela.material.cemento} \n")
     MenuPrincipal.menuPrincipal(ordenConstruccion, ciudadela)
   }
 

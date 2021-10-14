@@ -5,11 +5,11 @@ import co.com.ciudadela.modelo.{Ciudadela, OrdenConstruccion}
 
 trait Validadores {
   def validarMateriales(ordenConstruccion: OrdenConstruccion, ciudadela: Ciudadela): Boolean ={
-    (ciudadela.materiales.cemento < ordenConstruccion.tipoConstruccion.get.cemento ||
-      ciudadela.materiales.grava < ordenConstruccion.tipoConstruccion.get.grava ||
-      ciudadela.materiales.adobe < ordenConstruccion.tipoConstruccion.get.adobe ||
-      ciudadela.materiales.madera < ordenConstruccion.tipoConstruccion.get.madera ||
-      ciudadela.materiales.arena < ordenConstruccion.tipoConstruccion.get.arena
+    (ciudadela.material.cemento < ordenConstruccion.tipoConstruccion.get.cemento ||
+      ciudadela.material.grava < ordenConstruccion.tipoConstruccion.get.grava ||
+      ciudadela.material.adobe < ordenConstruccion.tipoConstruccion.get.adobe ||
+      ciudadela.material.madera < ordenConstruccion.tipoConstruccion.get.madera ||
+      ciudadela.material.arena < ordenConstruccion.tipoConstruccion.get.arena
     )
   }
 

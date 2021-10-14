@@ -37,9 +37,9 @@ def digitarCoordenadasConstruccion( ordenConstruccion: OrdenConstruccion, ciudad
     if ( validarMateriales )  Imprimir.imprimirErrorValidacion(ordenConstruccion, ciudadela)
     val validarCoord = Validadores.validarCoordenadas(ordenConstruccion, ciudadela)
     if (validarCoord) Imprimir.imprimirErrorValidacion(ordenConstruccion, ciudadela)
-    val materialesAct = AdministradorMateriales.descontarMaterial(ordenConstruccion, ciudadela.materiales)
+    val materialesAct = AdministradorMateriales.descontarMaterial(ordenConstruccion, ciudadela.material)
     val ordenAct = AdministradorCiudadela.estadoSolicitudes(ciudadela, ordenConstruccion)
-    val ciudadelaAct = RegistrarSolicitud.guardarSolicitud(ordenAct, ciudadela.copy(materiales = materialesAct))
+    val ciudadelaAct = RegistrarSolicitud.guardarSolicitud(ordenAct, ciudadela.copy(material = materialesAct))
     Imprimir.imprimirOrden(ordenAct, ciudadelaAct)
 
   }

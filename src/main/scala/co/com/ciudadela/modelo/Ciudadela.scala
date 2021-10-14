@@ -1,12 +1,12 @@
 package co.com.ciudadela.modelo
 
-import java.util.{Calendar, Date}
+import java.time.LocalDate
 
-case class Ciudadela(fechaFin: Option[Date],
+case class Ciudadela(fechaFin: Option[LocalDate],
                      solicitudesOrdenes: List[OrdenConstruccion] = List(),
-                     materiales: Materiales = Materiales(),
+                     material: Material = Material(),
                      plazoEntrega: Int = 0,
-                     fechaInicio: Calendar,
+                     fechaInicio: LocalDate,
                      arquitecto: Arquitecto = Arquitecto())
 
 case class Arquitecto(identificacion: String = "123451", nombre: String = "Fernando Casique")

@@ -1,12 +1,12 @@
 package co.com.ciudadela.controlador
 
-import co.com.ciudadela.modelo.{ Materiales, OrdenConstruccion}
+import co.com.ciudadela.modelo.{Material,OrdenConstruccion}
 
 
 object AdministradorMateriales {
 
 
-  def recargaMateriales(  materiales: Materiales): Materiales = {
+  def recargaMateriales(  materiales: Material): Material = {
    materiales.copy(
         cemento = materiales.cemento + 500,
         grava = materiales.grava + 500,
@@ -15,7 +15,7 @@ object AdministradorMateriales {
         adobe = materiales.adobe + 500)
   }
 
-  def descontarMaterial( ordenConstruccion: OrdenConstruccion, materiales: Materiales): Materiales ={
+  def descontarMaterial( ordenConstruccion: OrdenConstruccion, materiales: Material): Material ={
   materiales.copy( cemento = materiales.cemento - ordenConstruccion.tipoConstruccion.get.cemento,
     grava = materiales.grava - ordenConstruccion.tipoConstruccion.get.grava,
     adobe = materiales.adobe - ordenConstruccion.tipoConstruccion.get.adobe,
